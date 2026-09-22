@@ -2,11 +2,13 @@
 
   <PropertyGroup>
     <RootNamespace>NttBankApi.Api</RootNamespace>
-    <UserSecretsId>44b7cbea-12d5-42dc-b4ec-15fcb7faa430</UserSecretsId>
+    <UserSecretsId>44b7cbea-12d5-42dc-b4ec-15fcb7fa9999</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ModelContextProtocol.AspNetCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

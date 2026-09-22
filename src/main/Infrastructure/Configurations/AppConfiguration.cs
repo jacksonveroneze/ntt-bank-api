@@ -6,6 +6,8 @@ namespace NttBankApi.Infrastructure.Configurations;
 public sealed record AppConfiguration
 {
     public required AppInfoConfiguration Application { get; init; }
+    
+    public required DatabaseConfiguration Database { get; init; }
 
     public required CacheConfiguration Cache { get; init; }
 
