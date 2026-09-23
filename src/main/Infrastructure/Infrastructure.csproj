@@ -39,8 +39,9 @@
 
     <PackageReference Include="AspNetCore.HealthChecks.Redis" />
 
-    <PackageReference Include="EFCore.NamingConventions"/>
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL"/>
+    <PackageReference Include="EFCore.NamingConventions" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="JacksonVeroneze.NET.EntityFramework" />
   </ItemGroup>
 
 </Project>
