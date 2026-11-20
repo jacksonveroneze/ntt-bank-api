@@ -19,7 +19,7 @@ public static class OpenTelemetryExtensions
         "/health/live",
         "/health/ready",
     ];
-    
+
     public static IServiceCollection AddOpenTelemetry(
         this IServiceCollection services,
         AppConfiguration appConfiguration)

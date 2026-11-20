@@ -20,6 +20,7 @@
         <Project Path="main/Api/Api.csproj" />
     </Folder>
     <Folder Name="/tests/">
+        <Project Path="tests/ApiTests/ApiTests.csproj" />
         <Project Path="tests/UnitTests/UnitTests.csproj" />
     </Folder>
 </Solution>
