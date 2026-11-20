@@ -42,4 +42,4 @@ Valores marcados `a definir` devem ser preenchidos pelo time antes do primeiro u
 ## Definição de pronto
 
 - **CONST-009** Uma task está pronta somente quando: build verde; testes verdes, incluindo os dos CAs da task; `dotnet format --verify-no-changes` sem diferença; nenhum aviso novo; arquivos alterados iguais aos previstos na task; PR descrito com os comandos realmente executados; CI verde; revisão humana aprovada.
-- **CONST-010** Uma change está pronta para codificar somente quando: todo requisito tem ao menos um CA; todo CA tem teste e task; nenhum item `a definir` ou `(proposto, confirmar)`; proposal, specs, design e tasks aprovados por humano; PR dos artefatos mergeado. Ao fim da implementação, o `verify` não pode ter pendências.
+- **CONST-010** Uma change está pronta para codificar somente quando: todo requisito tem ao menos um CA; todo CA tem teste e task; nenhum item `a definir` ou `(proposto, confirmar)`; proposal, specs, design e tasks aprovados por humano; PR dos artefatos mergeado.

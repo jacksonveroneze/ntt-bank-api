@@ -1,5 +1,5 @@
 ## Contexto
-<!-- Por que esta mudança existe. Card, spec e tarefa de origem. -->
+<!-- Por que esta mudança existe. Card e change (openspec/changes/<nome>/) de origem. -->
 
 ## O que muda
 <!-- Lista curta, uma linha por mudança. -->
@@ -14,13 +14,12 @@ dotnet format src/NttBank.Api.slnx --verify-no-changes --no-restore
 ```
 
 ## Link de origem
-<!-- Link do card do Trello e, se houver, specs/<card-id>-<slug>/ e a tarefa T-nn. -->
+<!-- Link do card do Trello e, se houver, openspec/changes/<nome>/ e a task. -->
 
 ## Checklist
 - [ ] Título no padrão Conventional Commits: `<tipo>(<escopo>): <descrição no imperativo>`, até 72 caracteres
-- [ ] Critérios de aceite (CA-nn) atendidos, cada um com teste passando
-- [ ] Build, testes e `dotnet format --verify-no-changes` verdes
-- [ ] Sem segredo, token ou dado pessoal no diff nem nos logs
+- [ ] Task pronta conforme a definição de pronto (CONST-009), com cada CA coberto por teste passando (CONST-003)
+- [ ] Sem segredo, token ou dado pessoal no diff nem nos logs (CONST-004)
 - [ ] Mudança de comportamento protegida por feature flag (CONST-006), ou justificativa registrada
-- [ ] Apenas os arquivos previstos na tarefa; PR dentro do limite de tamanho (CONST-007)
-- [ ] Revisão humana solicitada; merge feito por humano
+- [ ] Apenas os arquivos da task; PR dentro do limite de tamanho (CONST-007)
+- [ ] Revisão humana solicitada; merge feito por humano (CONST-008)

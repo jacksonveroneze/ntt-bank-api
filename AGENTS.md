@@ -12,6 +12,8 @@ Projeto .NET 10 com Clean Architecture. Item `a definir`: não invente o valor; 
 
 Leia a constitution e a conventions antes de especificar ou codificar. Cite por ID; não copie o texto.
 
+`dotnet-conventions.md` não é versionado (está no `.gitignore`): vem de `ia-dev-kit/skills/net/rules`. Crie o link na raiz do repo: `ln -s <caminho-do-kit>/skills/net/rules/dotnet-conventions.md dotnet-conventions.md`. Se o arquivo não existir, pare e avise; não invente as regras.
+
 ## Comandos
 | Ação | Comando |
 |---|---|
