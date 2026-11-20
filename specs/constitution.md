@@ -32,8 +32,6 @@ Valores marcados `a definir` devem ser preenchidos pelo time antes do primeiro u
 
 ## Rollout
 
-- **CONST-006** Mudança de comportamento visível a usuário ou a sistema integrado entra atrás de feature flag, desligada por padrão, com plano de ativação e de reversão no `design.md`. Mudança puramente interna (refatoração sem efeito observável) dispensa flag, com a justificativa registrada. Biblioteca de flags: a definir.
-
 ## Tamanho de PR
 
 - **CONST-007** Um PR por task do `tasks.md`. Limite orientador: até 400 linhas de diff, até 10 arquivos, sem misturar refatoração e mudança de comportamento. Acima disso, a task é dividida no `tasks.md` antes de codificar. (valores a definir pelo time)
