@@ -34,4 +34,4 @@ Cada task é um PR (CONST-007). Teste cita o CA no nome (CONST-003). Ao fim de c
 
 ## 5. Fechamento
 
-- [ ] 5.1 [Manual] Conferir que todo CA (CA-01 a CA-15) tem teste que o cita e rodar build, test e format. Justificativa: verificação de integração da change. Verificar: comandos verdes registrados.
+- [x] 5.1 [Manual] Conferir que todo CA (CA-01 a CA-15) tem teste que o cita e rodar build, test e format. Justificativa: verificação de integração da change. Verificar: comandos verdes registrados. Conferido por busca nos testes: CA-01 a CA-15 têm teste que os cita (UnitTests 22 + ApiTests 10 = 32 testes). Build 0 warnings/0 erros, test e format verdes. Pendente: task 2.3 (migration) dispensada pelo usuário.
