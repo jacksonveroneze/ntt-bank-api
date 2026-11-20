@@ -25,9 +25,12 @@ Cada task é um PR (CONST-007). Teste cita o CA no nome (CONST-003). Ao fim de c
 
 ## 4. Api
 
-- [ ] 4.1 [Skill: create-endpoint] `GET /customers/{id}`, use case `GetCustomerById`, policy `CustomerRead` (scope `customers.read`); id recebido como texto e validado como inteiro positivo (400); 404 para ausente; sem dado pessoal no erro. Verificar: build verde.
-- [ ] 4.2 [Manual] `Program.cs`: chamar `AddDatabase`, `AddMapper` e mapear o endpoint de customers. Justificativa: Program.cs está na lista fechada. Verificar: `dotnet run` sobe na porta 7000 e `/customers/1` sem token responde 401.
-- [ ] 4.3 [Skill: write-dotnet-tests] Testes do endpoint e do validator de id. Cobrem CA-04, CA-05, CA-06, CA-07 e CA-15 (corpo de erro sem dado pessoal). Verificar: `dotnet test` verde.
+- [ ] 4.1 [Manual] Helpers da Api exigidos pela skill create-endpoint, em `src/main/Api`: `RouteGroupBuilderFactory.Factory(app, resource, version)`, `RouteNames`, `AddDefaultResponseEndpoints` (400, 401, 403, 404, 500) e `LocationBuilder.ForNamedRoute`; e renomear a constante da policy `AuthorizationPolicies.CustomerRead` para `EntitiesRead` (a skill deriva `{AggregateFolder}Read`; o scope `customers.read` não muda). Justificativa: helpers e policy da Api estão na lista fechada; ausentes, a skill para. Verificar: build verde.
+- [ ] 4.2 [Skill: create-endpoint] `GET /customers/{id}`, use case `GetCustomerById`, AggregateFolder `Entities`, resource `customers`, policy `EntitiesRead`; gera `ResultTranslator`, `RouteMappings`, `GetCustomerByIdEndpoint` e a chamada no `Program.cs`. Verificar: build verde.
+- [ ] 4.3 [Manual] Ajuste do endpoint gerado para id inválido: rota `{id}` como texto e resposta 400 ProblemDetails quando não for inteiro positivo (CA-04, CA-05), antes de chamar o use case. Justificativa: o padrão da skill devolve 404 por constraint de rota; item fora da lista fechada, autorizado pelo usuário em 2026-11-20. Verificar: build verde.
+- [ ] 4.4 [Manual] `Program.cs`: chamar `AddDatabase` e `AddMapper` (e conferir a chamada do endpoint). Justificativa: Program.cs está na lista fechada. Verificar: build verde e `dotnet run` sobe na porta 7000.
+- [ ] 4.5 [Manual] Projeto `src/tests/ApiTests` com `Microsoft.AspNetCore.Mvc.Testing`, xUnit, Moq e Shouldly (versões em `Directory.Packages.props`), incluído no `NttBank.Api.slnx`. Justificativa: pacote novo autorizado pelo usuário em 2026-11-20 (CONV-087); fora da lista fechada. Verificar: build verde.
+- [ ] 4.6 [Skill: write-dotnet-tests] Testes de integração do endpoint no `ApiTests`, use case mockado e autenticação de teste. Cobrem CA-01 (200 com `data`), CA-03 (404), CA-04, CA-05 (400), CA-06 (401), CA-07 (403) e CA-15 (corpo de erro sem name nem email). Verificar: `dotnet test` verde.
 
 ## 5. Fechamento
 
