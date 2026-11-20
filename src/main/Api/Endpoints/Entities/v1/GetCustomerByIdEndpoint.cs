@@ -11,12 +11,19 @@ internal static class GetCustomerByIdEndpoint
     {
         public RouteGroupBuilder AddGetById()
         {
-            builder.MapGet("{id:int}", async (
+            builder.MapGet("{id}", async (
                     [FromServices] IGetCustomerByIdUseCase useCase,
-                    int id,
+                    string id,
                     CancellationToken cancellationToken) =>
                 {
-                    GetCustomerByIdRequest input = new(id);
+                    if (!CustomerIdParser.TryParse(id, out int customerId))
+                    {
+                        return CustomerIdParser
+                            .ToInvalidResult<GetCustomerByIdResponse>()
+                            .ToIResult();
+                    }
+
+                    GetCustomerByIdRequest input = new(customerId);
 
                     var output = await useCase.ExecuteAsync(
                         input, cancellationToken);
