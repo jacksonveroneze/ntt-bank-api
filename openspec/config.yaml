@@ -1,0 +1,37 @@
+# openspec/config.yaml (ntt-bank-api)
+# Só processo do OpenSpec. Regras de repo, produto e código ficam em
+# AGENTS.md, specs/constitution.md e dotnet-conventions.md.
+# Mantenha curto: tudo aqui entra no contexto do agente.
+
+context: |
+  Leia AGENTS.md, specs/constitution.md (CONST-nnn) e dotnet-conventions.md (CONV-nnn)
+  antes de propor. Nenhum artefato pode contrariá-los; cite por ID, sem copiar o texto.
+  Item "a definir" ou conflito com regra: registre como pergunta e pare; não deduza.
+  Artefatos em português; identificadores de código em inglês.
+  CA é um cenário Dado/Quando/Então de um requisito, com dado sintético (CONST-004).
+  Todo código de produção e de teste é gerado SOMENTE pelas skills de skills/net
+  do ia-dev-kit: create-value-object, create-entity, create-efcore-repository,
+  create-read-use-case, create-mapper, create-endpoint, write-dotnet-tests.
+  Nunca escreva esse código à mão.
+
+rules:
+  proposal:
+    - Máximo 300 palavras e uma seção "Fora de escopo".
+  tasks:
+    - Toda task começa com "[Skill: <nome>]" ou "[Manual]".
+    - Task [Skill] lista os inputs que a skill exige (agregado, operação, campos, namespace).
+    - Task [Manual] só para o que nenhuma skill cobre (mapeamento EF, DI, migration, helpers e policy da Api, Program.cs). Justifique em uma linha.
+    - Ordem de dependência: Domain, Application (porta e repositório), use case, mapper, Api, testes.
+    - Todo CA tem task de teste que o cita (CONST-003).
+    - Cada task cabe em um PR pequeno (CONST-007).
+
+operations:
+  apply:
+    guidance:
+      - Task [Skill]: invoque a skill nomeada. Se ela parar por pré-requisito ausente, pare e reporte; não crie o que falta fora de uma task [Manual].
+      - Uma task por vez; pare para aprovação ao fim de cada uma.
+      - Antes de marcar concluída, rode build, test e format (comandos do AGENTS.md) e registre o que rodou.
+  archive:
+    guidance:
+      - Só arquive após verify sem pendências e build, test e format verdes.
+      - Resuma o entregue e liste as tasks [Manual] executadas.
