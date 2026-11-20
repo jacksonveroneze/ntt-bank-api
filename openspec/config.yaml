@@ -2,6 +2,7 @@
 # Só processo do OpenSpec. Regras de repo, produto e código ficam em
 # AGENTS.md, specs/constitution.md e dotnet-conventions.md.
 # Mantenha curto: tudo aqui entra no contexto do agente.
+# Itens de lista entre aspas simples: o ": " dentro de texto puro vira mapa no YAML.
 
 context: |
   Leia AGENTS.md, specs/constitution.md (CONST-nnn) e dotnet-conventions.md (CONV-nnn)
@@ -16,22 +17,24 @@ context: |
 
 rules:
   proposal:
-    - Máximo 300 palavras e uma seção "Fora de escopo".
+    - 'Máximo 300 palavras e uma seção "Fora de escopo".'
   tasks:
-    - Toda task começa com "[Skill: <nome>]" ou "[Manual]".
-    - Task [Skill] lista os inputs que a skill exige (agregado, operação, campos, namespace).
-    - Task [Manual] só para o que nenhuma skill cobre (mapeamento EF, DI, migration, helpers e policy da Api, Program.cs). Justifique em uma linha.
-    - Ordem de dependência: Domain, Application (porta e repositório), use case, mapper, Api, testes.
-    - Todo CA tem task de teste que o cita (CONST-003).
-    - Cada task cabe em um PR pequeno (CONST-007).
+    - 'Toda task começa com "[Skill: <nome>]" ou "[Manual]".'
+    - 'Task [Skill] lista os inputs que a skill exige (agregado, operação, campos, namespace).'
+    - 'Task [Manual] só para a lista fechada (mapeamento EF, DI, migration, helpers e policy da Api, Program.cs). Justifique em uma linha. Item fora da lista: pergunte antes de planejar.'
+    - 'Ordem de dependência: Domain, Application (porta e repositório), use case, mapper, Api, testes.'
+    - 'Todo CA tem task de teste que o cita (CONST-003).'
+    - 'Cada task cabe em um PR pequeno (CONST-007).'
 
 operations:
   apply:
     guidance:
-      - Task [Skill]: invoque a skill nomeada. Se ela parar por pré-requisito ausente, pare e reporte; não crie o que falta fora de uma task [Manual].
-      - Uma task por vez; pare para aprovação ao fim de cada uma.
-      - Antes de marcar concluída, rode build, test e format (comandos do AGENTS.md) e registre o que rodou.
+      - 'Task [Skill]: invoque a skill nomeada. Se ela parar por pré-requisito ausente, pare e reporte; não crie o que falta fora de uma task [Manual].'
+      - 'Uma task por vez; pare para aprovação ao fim de cada uma.'
+      - 'Código gerado por skill só se corrige reinvocando a skill ou por task [Manual] explícita; nunca edite à mão em silêncio.'
+      - 'Ao concluir uma task [Skill], registre no tasks.md a skill usada e o resumo do relatório dela.'
+      - 'Antes de marcar concluída, rode build, test e format (comandos do AGENTS.md) e registre o que rodou.'
   archive:
     guidance:
-      - Só arquive após verify sem pendências e build, test e format verdes.
-      - Resuma o entregue e liste as tasks [Manual] executadas.
+      - 'Só arquive após verify sem pendências e build, test e format verdes.'
+      - 'Resuma o entregue e liste as tasks [Manual] executadas.'
