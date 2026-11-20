@@ -4,8 +4,8 @@ Cada task é um PR (CONST-007). Teste cita o CA no nome (CONST-003). Ao fim de c
 
 ## 1. Domain
 
-- [ ] 1.1 [Skill: create-value-object] Value object `Email`, namespace `NttBankApi.Domain.ValueObjects`. Campo: valor string; regras: trim, minúsculas, formato válido; erro `Email.Invalid`. Verificar: build verde.
-- [ ] 1.2 [Skill: write-dotnet-tests] Testes do `Email`, classe alvo `Email`. Cobrem CA-12 e CA-13. Verificar: `dotnet test` verde.
+- [x] 1.1 [Skill: create-value-object] Value object `Email`, namespace `NttBankApi.Domain.ValueObjects`. Campo: valor string; regras: trim, minúsculas, formato válido; erro `Email.Invalid`. Verificar: build verde. Feito via create-value-object: `Email.cs` criado; build, test e format verdes. Format também corrigiu 8 arquivos de Infrastructure já existentes (pedido do usuário).
+- [x] 1.2 [Skill: write-dotnet-tests] Testes do `Email`, classe alvo `Email`. Cobrem CA-12 e CA-13. Verificar: `dotnet test` verde. Feito via write-dotnet-tests: `EmailTests.cs` (10 testes); build, test e format verdes.
 - [ ] 1.3 [Skill: create-entity] Aggregate `Customer`, namespace `NttBankApi.Domain.Entities`. Campos: Id (int, gerado pelo banco), Name (string), Email (`Email`), CreatedAt (DateTimeOffset, recebido de `TimeProvider`), AccountType (enum Current, Nri, Savings, FixedDeposit, Salary), Status (enum Active, Blocked, Closed); enums em `NttBankApi.Domain.Enums`. Regras: trim em Name, 1 a 256 caracteres; erros `Customer.NameInvalid`. Verificar: build verde.
 - [ ] 1.4 [Skill: write-dotnet-tests] Testes de `Customer`, classe alvo `Customer`. Cobrem CA-08, CA-09, CA-10, CA-11 e CA-14. Verificar: `dotnet test` verde.
 

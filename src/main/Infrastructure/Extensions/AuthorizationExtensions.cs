@@ -29,7 +29,7 @@ public static class AuthorizationExtensions
         });
 
         return services;
-        
+
         static void AddJwtRequirements(AuthorizationPolicyBuilder policy)
         {
             policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);

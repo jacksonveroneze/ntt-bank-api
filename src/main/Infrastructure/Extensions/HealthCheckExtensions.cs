@@ -19,7 +19,7 @@ public static class HealthCheckExtensions
         ArgumentNullException.ThrowIfNull(appConfiguration);
 
         services.AddHealthChecks()
-            .AddCheck("self", () => 
+            .AddCheck("self", () =>
                 HealthCheckResult.Healthy(), tags: ["live"]);
 
         return services;
