@@ -857,3 +857,5 @@ rascunho/
 .claude/settings.local.json
 # Worktrees locais de trabalho paralelo, caso sejam criadas dentro do repositorio.
 .worktrees/
+
+dotnet-conventions.md
