@@ -1,1 +1,0 @@
-../../ia-dev-kit/skills/net/rules/dotnet-conventions.md
