@@ -1,4 +1,5 @@
 using CorrelationId;
+using NttBankApi.Api.Endpoints.Entities.v1;
 using NttBankApi.Infrastructure.Configurations;
 using NttBankApi.Infrastructure.Extensions;
 
@@ -31,5 +32,6 @@ app.AddHealthCheckEndpoints();
 app.UseOpenTelemetryPrometheusScrapingEndpoint("metrics");
 app.UseAuthentication();
 app.UseAuthorization();
+app.AddEntitiesEndpoints();
 
 await app.RunAsync();
