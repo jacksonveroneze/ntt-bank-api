@@ -1,5 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
+using JacksonVeroneze.NET.EntityFramework.Extensions;
 using Microsoft.Extensions.DependencyInjection;
+using NttBankApi.Application.Abstractions.Repositories.Entities;
+using NttBankApi.Infrastructure.Repositories.Entities;
 
 namespace NttBankApi.Infrastructure.Extensions;
 
@@ -10,6 +13,9 @@ public static class AppServicesExtensions
         this IServiceCollection services)
     {
         #region Feature
+
+        services.AddRepository();
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
 
         #endregion
 

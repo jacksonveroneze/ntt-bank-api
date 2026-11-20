@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
+using NttBankApi.Infrastructure.Context.Configurations;
 
 namespace NttBankApi.Infrastructure.Context;
 
@@ -8,7 +9,7 @@ public class DefaultDbContext(
     DbContextOptions<DefaultDbContext> options)
     : DbContext(options)
 {
-    private const string Schema = "schema";
+    private const string Schema = "bank";
 
     protected override void OnModelCreating(
         ModelBuilder modelBuilder)
@@ -16,5 +17,7 @@ public class DefaultDbContext(
         ArgumentNullException.ThrowIfNull(modelBuilder);
 
         modelBuilder.HasDefaultSchema(Schema);
+
+        modelBuilder.ApplyConfiguration(new CustomerConfiguration());
     }
 }
