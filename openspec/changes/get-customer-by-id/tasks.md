@@ -12,7 +12,7 @@ Cada task é um PR (CONST-007). Teste cita o CA no nome (CONST-003). Ao fim de c
 
 ## 2. Application: porta e repositório
 
-- [ ] 2.1 [Skill: create-efcore-repository] Agregado `Customer`; porta `ICustomerRepository` em `NttBankApi.Application.Abstractions.Repositories`, implementação na Infrastructure; operação: obter por id (`GetByIdAsync`, NoTracking, sem escrita). Verificar: build verde.
+- [x] 2.1 [Skill: create-efcore-repository] Agregado `Customer`; porta `ICustomerRepository` em `NttBankApi.Application.Abstractions.Repositories`, implementação na Infrastructure; operação: obter por id (`GetByIdAsync`, NoTracking, sem escrita). Verificar: build verde. Feito via create-efcore-repository (opção A do usuário): catálogo completo gerado (GetById, GetPaged, Create, Update, Delete) por regra da skill; pasta e namespace `Abstractions.Repositories.Entities` (AggregateFolder=Entities, onde a entidade está no Domain). Build, test e format verdes.
 - [ ] 2.2 [Manual] Mapeamento EF de `Customer` (tabela `customers`, id identity, enums como texto, Email convertido, name máx. 256), schema `bank` no `DefaultDbContext` e registro do repositório em `AddApplicationServices`. Justificativa: mapeamento EF e DI estão na lista fechada. Verificar: build verde.
 - [ ] 2.3 [Manual] Migration inicial criando `bank.customers`, revisada. Justificativa: migration está na lista fechada. Verificar: script SQL gerado contém só `bank.customers`.
 
