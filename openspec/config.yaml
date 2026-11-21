@@ -10,6 +10,9 @@ context: |
   Item "a definir" ou conflito com regra: registre como pergunta e pare; não deduza.
   Artefatos em português; identificadores de código em inglês.
   CA é um cenário Dado/Quando/Então de um requisito, com dado sintético (CONST-004).
+  Spec de endpoint traz o contrato HTTP (envelope ou objeto, corpo de erro, serialização
+  de enums, versão na URL, códigos 400/401/403/404, política de id) e os limites dos dados
+  (mínimo e máximo, formato). O que faltar vira "a definir"; não assuma.
   Todo código de produção e de teste é gerado SOMENTE pelas skills de skills/net
   do ia-dev-kit: create-value-object, create-entity, create-efcore-repository,
   create-read-use-case, create-mapper, create-endpoint, write-dotnet-tests.
@@ -17,11 +20,17 @@ context: |
 
 rules:
   proposal:
-    - 'Máximo 300 palavras e uma seção "Fora de escopo".'
+    - 'Máximo 400 palavras e uma seção "Fora de escopo".'
+    - 'Liste os pré-requisitos de ambiente (ferramentas, pacotes de teste, connection string de CI) e como a funcionalidade será provada ponta a ponta (migration, seed).'
+    - 'Confirme se build, test e format estão verdes na main antes de planejar; se não estiverem, registre como pré-requisito.'
   tasks:
+    - 'Antes de escrever o tasks.md, leia o SKILL.md, as pré-condições (prerequisites.md) e as references de cada skill citada. Para cada task [Skill], registre no design.md o que falta no repo para a skill rodar (enums, helpers, policy, pastas, catálogo de operações) e planeje isso como task [Manual] anterior.'
+    - 'Conflito entre a spec e o contrato de uma skill (status HTTP, tipo do id, operações geradas, pasta do agregado): registre como item a definir e pare. Não contorne com task [Manual].'
     - 'Toda task começa com "[Skill: <nome>]" ou "[Manual]".'
-    - 'Task [Skill] lista os inputs que a skill exige (agregado, operação, campos, namespace).'
-    - 'Task [Manual] só para a lista fechada (mapeamento EF, DI, migration, helpers e policy da Api, Program.cs). Justifique em uma linha. Item fora da lista: pergunte antes de planejar.'
+    - 'Task [Skill] lista os inputs que a skill exige (agregado, operação, campos, namespace, tipo do id).'
+    - 'Task [Manual] só para a lista fechada (mapeamento EF e schema do DbContext, DI e ligações do Program.cs, migration, enums, helpers da Api, policy de autorização). Justifique em uma linha. Item fora da lista: pergunte antes de planejar.'
+    - 'create-read-use-case já gera o mapper e os testes do use case: não planeje create-mapper nem write-dotnet-tests para o mesmo use case.'
+    - 'Task dispensada: remova-a do tasks.md e registre o motivo no design.md. Não deixe caixa aberta.'
     - 'Ordem de dependência: Domain, Application (porta e repositório), use case, mapper, Api, testes.'
     - 'Todo CA tem task de teste que o cita (CONST-003).'
     - 'Cada task cabe em um PR pequeno (CONST-007).'
