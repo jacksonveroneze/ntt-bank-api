@@ -9,7 +9,7 @@ namespace NttBankApi.Infrastructure.Extensions;
 public static class FluentValidationExtensions
 {
     public static IServiceCollection AddFluentValidation(
-        this IServiceCollection services, 
+        this IServiceCollection services,
         Assembly assembly)
     {
         services.AddValidatorsFromAssembly(assembly);

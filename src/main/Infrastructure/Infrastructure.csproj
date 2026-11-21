@@ -44,4 +44,8 @@
     <PackageReference Include="JacksonVeroneze.NET.EntityFramework" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
 </Project>

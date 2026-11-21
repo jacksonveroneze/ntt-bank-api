@@ -8,7 +8,7 @@ public class DefaultDbContext(
     DbContextOptions<DefaultDbContext> options)
     : DbContext(options)
 {
-    private const string Schema = "schema";
+    private const string Schema = "bank";
 
     protected override void OnModelCreating(
         ModelBuilder modelBuilder)

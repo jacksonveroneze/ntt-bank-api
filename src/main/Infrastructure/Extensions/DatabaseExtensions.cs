@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using JacksonVeroneze.NET.EntityFramework.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +20,8 @@ public static class DatabaseExtensions
             IHostEnvironment environment)
         {
             ArgumentNullException.ThrowIfNull(appConfiguration);
+
+            services.AddRepository();
 
             services.InternalAddDatabase<DefaultDbContext>(
                 appConfiguration.Database.ConnectionString,
