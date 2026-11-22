@@ -1,4 +1,4 @@
-﻿namespace ApiTests;
+namespace ApiTests;
 
 public class Class1
 {
