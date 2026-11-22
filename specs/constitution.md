@@ -10,9 +10,9 @@ Valores marcados `a definir` devem ser preenchidos pelo time antes do primeiro u
 
 - Cite pelo identificador `CONST-nnn`; nunca copie o texto da regra.
 - CA (critério de aceite) é um cenário Dado/Quando/Então de um requisito da spec.
-- Na proposal e nas specs, cite só o que for regra de negócio ou de produto (ex.: CONST-004 dados pessoais; CONST-006 rollout), sem tecnologia.
+- Na proposal e nas specs, cite só o que for regra de negócio ou de produto (ex.: CONST-004 dados pessoais), sem tecnologia.
 - No `design.md`, cada decisão técnica que decorre de uma regra traz "Base: CONST-nnn". Cada teste planejado por CA cita CONST-003.
-- No `tasks.md`, cada task que aplica uma regra cita o identificador; o limite de tamanho (CONST-007) decide o fatiamento.
+- No `tasks.md`, cada task que aplica uma regra cita o identificador.
 - Conflito entre o pedido e uma regra: não resolva sozinho. Registre como item `a definir` com a pergunta e pare para o humano decidir (a regra vence até a decisão).
 - Identificadores são estáveis: não renumere nem reaproveite. Regra aposentada fica marcada como `(aposentada)`.
 
@@ -27,17 +27,19 @@ Valores marcados `a definir` devem ser preenchidos pelo time antes do primeiro u
 
 ## Segurança e dados pessoais
 
-- **CONST-004** Dado pessoal (CPF, e-mail, telefone, endereço, dados financeiros) nunca aparece em log (CONV-054), mensagem de erro, comentário, fixture de teste real nem exemplo de spec. Use dado sintético. Coleta nova de dado pessoal exige base legal registrada na spec (item `a definir` até o humano confirmar). Retenção: a definir.
+- **CONST-004** Dado pessoal (CPF, e-mail, telefone, endereço, dados financeiros) nunca aparece em log (CONV-054), mensagem de erro, comentário, fixture de teste real nem exemplo de spec. Use dado sintético. Coleta nova de dado pessoal exige base legal registrada na spec; changes que apenas leem dado já existente não a exigem. Retenção: fora do escopo, por decisão do responsável.
 - **CONST-005** Segredo fora do repositório, entrada externa validada e todo endpoint com controle de acesso explícito são invariantes. A regra de código está em CONV-055, CONV-038 e CONV-079.
 
 ## Rollout
 
+- **CONST-006** (aposentada) Feature flag não é exigida neste repositório.
+
 ## Tamanho de PR
 
-- **CONST-007** Um PR por task do `tasks.md`. Limite orientador: até 400 linhas de diff, até 10 arquivos, sem misturar refatoração e mudança de comportamento. Acima disso, a task é dividida no `tasks.md` antes de codificar. (valores a definir pelo time)
+- **CONST-007** Um PR por change, com os artefatos e o código. Sem misturar refatoração e mudança de comportamento. Change grande: divida em changes menores no propose.
 - **CONST-008** Merge sempre humano, após revisão humana. Nenhum agente faz merge, push em `main`/`develop` ou force-push.
 
 ## Definição de pronto
 
 - **CONST-009** Uma task está pronta somente quando: build verde; testes verdes, incluindo os dos CAs da task; `dotnet format --verify-no-changes` sem diferença; nenhum aviso novo; arquivos alterados iguais aos previstos na task; PR descrito com os comandos realmente executados; CI verde; revisão humana aprovada.
-- **CONST-010** Uma change está pronta para codificar somente quando: todo requisito tem ao menos um CA; todo CA tem teste e task; nenhum item `a definir` ou `(proposto, confirmar)`; proposal, specs, design e tasks aprovados por humano; PR dos artefatos mergeado.
+- **CONST-010** Uma change está pronta para codificar somente quando: todo requisito tem ao menos um CA; todo CA tem teste e task; nenhum item `a definir` ou `(proposto, confirmar)`; proposal, specs, design e tasks aprovados por humano antes do apply.

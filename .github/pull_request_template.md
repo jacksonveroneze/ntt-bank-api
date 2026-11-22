@@ -20,5 +20,5 @@ dotnet format src/NttBank.Api.slnx --verify-no-changes --no-restore
 - [ ] Título no padrão Conventional Commits: `<tipo>(<escopo>): <descrição no imperativo>`, até 72 caracteres
 - [ ] Task pronta conforme a definição de pronto (CONST-009), com cada CA coberto por teste passando (CONST-003)
 - [ ] Sem segredo, token ou dado pessoal no diff nem nos logs (CONST-004)
-- [ ] Apenas os arquivos da task; PR dentro do limite de tamanho (CONST-007)
+- [ ] Apenas os arquivos previstos nas tasks da change (CONST-007)
 - [ ] Revisão humana solicitada; merge feito por humano (CONST-008)

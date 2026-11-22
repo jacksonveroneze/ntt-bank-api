@@ -13,6 +13,7 @@ context: |
   Spec de endpoint traz o contrato HTTP (envelope ou objeto, corpo de erro, serialização
   de enums, versão na URL, códigos 400/401/403/404, política de id) e os limites dos dados
   (mínimo e máximo, formato). O que faltar vira "a definir"; não assuma.
+  A spec nomeia os tipos (enums e value objects) e os códigos de erro (Tipo.Motivo, CONV-021).
   Todo código de produção e de teste é gerado SOMENTE pelas skills de skills/net
   do ia-dev-kit: create-value-object, create-entity, create-efcore-repository,
   create-read-use-case, create-mapper, create-endpoint, write-dotnet-tests.
@@ -27,7 +28,8 @@ rules:
     - 'Antes de escrever o tasks.md, leia o SKILL.md, as pré-condições (prerequisites.md) e as references de cada skill citada. Para cada task [Skill], registre no design.md o que falta no repo para a skill rodar (enums, helpers, policy, pastas, catálogo de operações) e planeje isso como task [Manual] anterior.'
     - 'Conflito entre a spec e o contrato de uma skill (status HTTP, tipo do id, operações geradas, pasta do agregado): registre como item a definir e pare. Não contorne com task [Manual].'
     - 'Toda task começa com "[Skill: <nome>]" ou "[Manual]".'
-    - 'Task [Skill] lista os inputs que a skill exige (agregado, operação, campos, namespace, tipo do id).'
+    - 'Task [Skill] lista os inputs que a skill exige (agregado, operação, campos, namespace, tipo do id), no formato pronto para o usuário colar no comando da skill.'
+    - 'Liste no design.md os arquivos que já existem e que as skills tratam como pré-requisito (por exemplo, IUseCase e DataResponse). Nenhuma task pode reescrevê-los.'
     - 'Task [Manual] só para a lista fechada (mapeamento EF e schema do DbContext, DI e ligações do Program.cs, migration, enums, helpers da Api, policy de autorização). Justifique em uma linha. Item fora da lista: pergunte antes de planejar.'
     - 'create-read-use-case já gera o mapper e os testes do use case: não planeje create-mapper nem write-dotnet-tests para o mesmo use case.'
     - 'Task dispensada: remova-a do tasks.md e registre o motivo no design.md. Não deixe caixa aberta.'
@@ -38,12 +40,14 @@ rules:
 operations:
   apply:
     guidance:
-      - 'Task [Skill]: invoque a skill nomeada. Se ela parar por pré-requisito ausente, pare e reporte; não crie o que falta fora de uma task [Manual].'
+      - 'Task [Skill]: não escreva o código. Monte o comando da skill (nome e inputs do tasks.md), peça ao usuário que o invoque por slash command e aguarde o resultado. Ler o template e escrever à mão não conta como invocar a skill.'
+      - 'Depois da skill, rode git status e confirme que só os arquivos previstos mudaram e que nenhum arquivo preexistente foi sobrescrito. Divergência: pare e reporte.'
+      - 'Se a skill parar por pré-requisito ausente: pare e reporte; não crie o que falta fora de uma task [Manual].'
       - 'Uma task por vez; pare para aprovação ao fim de cada uma.'
       - 'Código gerado por skill só se corrige reinvocando a skill ou por task [Manual] explícita; nunca edite à mão em silêncio.'
-      - 'Ao concluir uma task [Skill], registre no tasks.md a skill usada e o resumo do relatório dela.'
+      - 'Ao concluir uma task [Skill], cole no tasks.md o relatório da skill. Sem o relatório, a task não está concluída.'
       - 'Antes de marcar concluída, rode build, test e format (comandos do AGENTS.md) e registre o que rodou.'
   archive:
     guidance:
-      - 'Só arquive após verify sem pendências e build, test e format verdes.'
+      - 'Só arquive após verify sem pendências e build, test e format verdes, e com o relatório da skill em toda task [Skill].'
       - 'Resuma o entregue e liste as tasks [Manual] executadas.'
