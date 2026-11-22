@@ -37,7 +37,8 @@ Antes de dizer que terminou: build, teste e format verdes. Registre os comandos 
 - Mudança de funcionalidade nasce de uma change em `openspec/changes/<nome>/` (proposal, specs, design, tasks), aprovada por humano antes de codificar.
 - Ciclo: explore, propose, apply, verify, archive. O detalhe está no `openspec/config.yaml`.
 - Código só pelas skills de `skills/net`. O que nenhuma skill cobre é task `[Manual]`.
-- Task `[Skill]`: o agente não gera o código. Ele monta o comando da skill com os inputs e pede ao usuário que a invoque por slash command; depois confere o resultado e registra o relatório da skill no `tasks.md`.
+- Task `[Skill]`: o agente não escreve o código; ele invoca a skill pela ferramenta Skill, com os inputs do `tasks.md`, sem pedir ao usuário. Depois confere o `git status` e registra o relatório da skill no `tasks.md`.
+- O `apply` roda as tasks em sequência, sem aprovação entre elas. Para só em bloqueio (pré-requisito ausente, conflito spec x skill, `git status` divergente, build/test/format falhando).
 - Change incompleta (`a definir`, `(proposto, confirmar)`): pare e pergunte; não deduza.
 
 ## Branches e commits

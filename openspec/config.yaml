@@ -40,10 +40,10 @@ rules:
 operations:
   apply:
     guidance:
-      - 'Task [Skill]: não escreva o código. Monte o comando da skill (nome e inputs do tasks.md), peça ao usuário que o invoque por slash command e aguarde o resultado. Ler o template e escrever à mão não conta como invocar a skill.'
+      - 'Task [Skill]: invoque você mesmo a skill pela ferramenta Skill, com os inputs do tasks.md, sem pedir ao usuário que o faça. Não escreva o código à mão. Ler o template e escrevê-lo à mão não conta como invocar a skill.'
       - 'Depois da skill, rode git status e confirme que só os arquivos previstos mudaram e que nenhum arquivo preexistente foi sobrescrito. Divergência: pare e reporte.'
       - 'Se a skill parar por pré-requisito ausente: pare e reporte; não crie o que falta fora de uma task [Manual].'
-      - 'Uma task por vez; pare para aprovação ao fim de cada uma.'
+      - 'Execute as tasks em sequência, na ordem do tasks.md, sem pedir aprovação entre elas. Só pare diante de bloqueio: pré-requisito ausente, conflito spec x skill, git status divergente ou build, test ou format falhando sem correção por skill ou task [Manual].'
       - 'Código gerado por skill só se corrige reinvocando a skill ou por task [Manual] explícita; nunca edite à mão em silêncio.'
       - 'Ao concluir uma task [Skill], cole no tasks.md o relatório da skill. Sem o relatório, a task não está concluída.'
       - 'Antes de marcar concluída, rode build, test e format (comandos do AGENTS.md) e registre o que rodou.'
