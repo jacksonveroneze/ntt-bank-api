@@ -14,7 +14,7 @@ context: |
   de enums, versão na URL, códigos 400/401/403/404, política de id) e os limites dos dados
   (mínimo e máximo, formato). O que faltar vira "a definir"; não assuma.
   A spec nomeia os tipos (enums e value objects) e os códigos de erro (Tipo.Motivo, CONV-021).
-  Todo código de produção e de teste é gerado SOMENTE pelas skills de skills/net
+  Todo código de produção e de teste é escrito SOMENTE seguindo as skills de skills/net (template, regras e harness)
   do ia-dev-kit: create-value-object, create-entity, create-efcore-repository,
   create-read-use-case, create-mapper, create-endpoint, write-dotnet-tests.
   Nunca escreva esse código à mão.
@@ -40,12 +40,12 @@ rules:
 operations:
   apply:
     guidance:
-      - 'Task [Skill]: invoque você mesmo a skill pela ferramenta Skill, com os inputs do tasks.md, sem pedir ao usuário que o faça. Não escreva o código à mão. Ler o template e escrevê-lo à mão não conta como invocar a skill.'
+      - 'Task [Skill]: carregue a skill pela ferramenta Skill e siga à risca o template, as regras e o harness dela. Quem escreve o código é você, mas a estrutura vem da skill; não improvise. Todo conteúdo que o template não cobre (validações, casos de teste, códigos de erro, conversões) precisa ter origem na spec ou no design.md; se não tiver, pare e pergunte, não decida.'
       - 'Depois da skill, rode git status e confirme que só os arquivos previstos mudaram e que nenhum arquivo preexistente foi sobrescrito. Divergência: pare e reporte.'
       - 'Se a skill parar por pré-requisito ausente: pare e reporte; não crie o que falta fora de uma task [Manual].'
       - 'Execute as tasks em sequência, na ordem do tasks.md, sem pedir aprovação entre elas. Só pare diante de bloqueio: pré-requisito ausente, conflito spec x skill, git status divergente ou build, test ou format falhando sem correção por skill ou task [Manual].'
-      - 'Código gerado por skill só se corrige reinvocando a skill ou por task [Manual] explícita; nunca edite à mão em silêncio.'
-      - 'Ao concluir uma task [Skill], cole no tasks.md o relatório da skill. Sem o relatório, a task não está concluída.'
+      - 'Código gerado com a skill só se corrige pela própria skill (template e harness) ou por task [Manual] explícita; nunca ajuste em silêncio.'
+      - 'Ao concluir uma task [Skill], cole no tasks.md o relatório de conformidade: arquivos criados, itens do harness da skill atendidos e cada trecho fora do template com a origem na spec. O relatório é seu, não da skill; sem ele a task não está concluída.'
       - 'Antes de marcar concluída, rode build, test e format (comandos do AGENTS.md) e registre o que rodou.'
   archive:
     guidance:

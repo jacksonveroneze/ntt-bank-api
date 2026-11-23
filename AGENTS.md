@@ -36,8 +36,8 @@ Antes de dizer que terminou: build, teste e format verdes. Registre os comandos 
 ## Fluxo de mudança (OpenSpec)
 - Mudança de funcionalidade nasce de uma change em `openspec/changes/<nome>/` (proposal, specs, design, tasks), aprovada por humano antes de codificar.
 - Ciclo: explore, propose, apply, verify, archive. O detalhe está no `openspec/config.yaml`.
-- Código só pelas skills de `skills/net`. O que nenhuma skill cobre é task `[Manual]`.
-- Task `[Skill]`: o agente não escreve o código; ele invoca a skill pela ferramenta Skill, com os inputs do `tasks.md`, sem pedir ao usuário. Depois confere o `git status` e registra o relatório da skill no `tasks.md`.
+- Código só seguindo as skills de `skills/net`. O que nenhuma skill cobre é task `[Manual]`.
+- Task `[Skill]`: o agente carrega a skill pela ferramenta Skill e escreve o código seguindo o template, as regras e o harness dela. O que o template não cobre precisa ter origem na spec; sem origem, pare e pergunte. Depois confere o `git status` e registra no `tasks.md` o relatório de conformidade (arquivos, itens do harness, trechos fora do template).
 - O `apply` roda as tasks em sequência, sem aprovação entre elas. Para só em bloqueio (pré-requisito ausente, conflito spec x skill, `git status` divergente, build/test/format falhando).
 - Change incompleta (`a definir`, `(proposto, confirmar)`): pare e pergunte; não deduza.
 
