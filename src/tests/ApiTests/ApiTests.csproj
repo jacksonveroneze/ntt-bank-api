@@ -28,12 +28,4 @@
     <ProjectReference Include="..\..\main\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Using Include="Xunit" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Endpoints\Customers\v1\GetCustomerByIdEndpointTests.cs" />
-  </ItemGroup>
-
 </Project>

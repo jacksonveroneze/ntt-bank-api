@@ -26,12 +26,4 @@
     <ProjectReference Include="..\..\main\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Using Include="Xunit" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Domain\Customers\CustomerTests.cs" />
-  </ItemGroup>
-
 </Project>
