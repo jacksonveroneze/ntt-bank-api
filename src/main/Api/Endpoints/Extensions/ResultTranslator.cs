@@ -43,6 +43,24 @@ internal static class ResultTranslator
                 ? Results.Created(locationUri, (object?)result.Value)
                 : Results.StatusCode(StatusCodes.Status201Created);
         }
+
+        public IResult ToCreatedResultFromRoute(LinkGenerator linkGenerator,
+            HttpContext context,
+            string routeName,
+            object id)
+        {
+            ArgumentNullException.ThrowIfNull(result);
+        
+            if (!result.IsSuccess)
+            {
+                return result.ToCreatedResult();
+            }
+
+            Uri uri = LocationBuilder.ForNamedRoute(
+                linkGenerator, context, routeName, id);
+
+            return result.ToCreatedResult(uri);
+        }
     }
 
 

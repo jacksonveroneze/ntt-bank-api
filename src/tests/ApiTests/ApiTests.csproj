@@ -11,6 +11,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="Moq" />
     <PackageReference Include="Shouldly" />
@@ -22,12 +23,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\main\Api\Api.csproj" />
     <ProjectReference Include="..\..\main\Application\Application.csproj" />
     <ProjectReference Include="..\..\main\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Endpoints\Customers\v1\GetCustomerByIdEndpointTests.cs" />
   </ItemGroup>
 
 </Project>

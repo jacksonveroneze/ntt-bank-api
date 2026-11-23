@@ -10,7 +10,7 @@ internal static class RouteGroupBuilderFactory
         ArgumentNullException.ThrowIfNull(app);
         ArgumentException.ThrowIfNullOrWhiteSpace(resource);
 
-        return app.MapGroup($"/{resource}")
+        return app.MapGroup($"/v{version}/{resource}")
             .WithGroupName($"v{version}");
     }
 }

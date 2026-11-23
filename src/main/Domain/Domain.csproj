@@ -8,4 +8,15 @@
     <PackageReference Include="JacksonVeroneze.NET.Result"/>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Customers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Customers\Customer.cs" />
+    <Compile Remove="Enums\AccountStatus.cs" />
+    <Compile Remove="Enums\AccountType.cs" />
+    <Compile Remove="ValueObjects\Email.cs" />
+  </ItemGroup>
+
 </Project>

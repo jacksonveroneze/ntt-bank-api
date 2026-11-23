@@ -1,4 +1,5 @@
 using CorrelationId;
+using NttBankApi.Application;
 using NttBankApi.Infrastructure.Configurations;
 using NttBankApi.Infrastructure.Extensions;
 
@@ -19,6 +20,8 @@ builder.Services
     .AddJsonOptionsSerialize()
     .AddCorrelation()
     .AddCultureConfiguration()
+    .AddMapper(AssemblyReference.Assembly)
+    .AddDatabase(appConfiguration, builder.Environment)
     .AddApplicationServices()
     .AddOpenTelemetry(appConfiguration)
     .AddHealthCheck(appConfiguration);
@@ -33,3 +36,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 await app.RunAsync();
+
+public partial class Program;

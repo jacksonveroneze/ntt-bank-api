@@ -6,12 +6,28 @@
 
   <ItemGroup>
     <PackageReference Include="JacksonVeroneze.NET.Pagination" />
+    <PackageReference Include="FluentValidation" />
     <PackageReference Include="Mapster" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Abstractions\Repositories\Customers\" />
+    <Folder Include="Features\Customers\Common\Mappers\" />
+    <Folder Include="Features\Customers\Common\Models\" />
+    <Folder Include="Features\Customers\GetCustomerById\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Features\Customers\Common\Mappers\CustomerResponseMapper.cs" />
+    <Compile Remove="Features\Customers\GetCustomerById\GetCustomerByIdMapper.cs" />
+    <Compile Remove="Features\Customers\GetCustomerById\GetCustomerByIdRequest.cs" />
+    <Compile Remove="Features\Customers\GetCustomerById\GetCustomerByIdResponse.cs" />
+    <Compile Remove="Features\Customers\GetCustomerById\GetCustomerByIdUseCase.cs" />
   </ItemGroup>
 
 </Project>

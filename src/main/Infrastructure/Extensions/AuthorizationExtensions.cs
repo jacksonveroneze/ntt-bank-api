@@ -22,9 +22,9 @@ public static class AuthorizationExtensions
         {
             options.AddPolicy(AuthorizationPolicies.JwtAccess, AddJwtRequirements);
 
-            options.AddPolicy(AuthorizationPolicies.CustomerRead, policy =>
+            options.AddPolicy(AuthorizationPolicies.Policy, policy =>
             {
-                AddJwtScopeRequirements(policy, AuthorizationScopes.CustomerRead);
+                AddJwtScopeRequirements(policy, AuthorizationScopes.PolicyRead);
             });
         });
 

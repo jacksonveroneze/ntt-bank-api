@@ -46,6 +46,11 @@
 
   <ItemGroup>
     <Folder Include="Mappings\" />
+    <Folder Include="Repositories\Customers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repositories\Customers\CustomerRepository.cs" />
   </ItemGroup>
 
 </Project>
