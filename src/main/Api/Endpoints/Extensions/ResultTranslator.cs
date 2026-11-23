@@ -50,7 +50,7 @@ internal static class ResultTranslator
             object id)
         {
             ArgumentNullException.ThrowIfNull(result);
-        
+
             if (!result.IsSuccess)
             {
                 return result.ToCreatedResult();
